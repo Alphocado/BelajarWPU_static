@@ -63,29 +63,81 @@
 
 
 // 4. object.create
+// const methodMahasiswa = {
+//   makan: function (porsi) {
+//     this.energy += porsi;
+//     console.log(`selamat makan ${this.nama}`);
+//   },
 
-const methodMahasiswa = {
-  makan: function (porsi) {
-    this.energy += porsi;
-    console.log(`selamat makan ${this.nama}`);
-  },
+//   main: function(jam) {
+//     this.energy -= jam;
+//     console.log(`${this.nama} sedang main`);
+//   },
 
-  main: function(jam) {
-    this.energy -= jam;
-    console.log(`${this.nama} sedang main`);
-  },
+//   tidur: function(jam) {
+//     this.energy += jam*2;
+//     console.log(`tidur ${this.nama}`)
+//   }
+// };
+// function Mahasiswa(nama, energy){
+//   let mahasiswa = Object.create(methodMahasiswa);
+//   mahasiswa.nama = nama;
+//   mahasiswa.energy = energy;
 
-  tidur: function(jam) {
-    this.energy += jam*2;
-    console.log(`tidur ${this.nama}`)
+//   return mahasiswa;
+// }
+// let udin = Mahasiswa('udin', 10);
+// let tono = Mahasiswa('tono', 10);
+
+// Prototype
+// function Mahasiswa(nama, energy){
+//   // let mahasiswa = Object.create(methodMahasiswa);
+//   // let mahasiswa = {};
+
+//   // sebenarnya ada ini
+//   // let this = {};
+
+//   this.nama = nama;
+//   this.energy = energy;
+
+
+//   // return this;
+// }
+// Mahasiswa.prototype.makan = function(porsi) {
+//   this.energy += porsi;
+//   return `${this.nama} makan`;
+// }
+// Mahasiswa.prototype.main = function(jam) {
+//   this.energy -= jam;
+//   return `${this.nama} main`;
+// }
+// Mahasiswa.prototype.main = function(jam) {
+//   this.energy += jam*2;
+//   return `${this.nama} tidur`;
+// }
+
+
+// let udin = new Mahasiswa('Udin', 10); 
+
+
+// versi class
+class Mahasiswa {
+  constructor(nama, energi) {
+    this.nama = nama;
+    this.energi = energi;
   }
-};
-function Mahasiswa(nama, energy){
-  let mahasiswa = Object.create(methodMahasiswa);
-  mahasiswa.nama = nama;
-  mahasiswa.energy = energy;
-
-  return mahasiswa;
+  makan = function(porsi) {
+    this.energy += porsi;
+    return `${this.nama} makan`;
+  }
+  main = function(jam) {
+    this.energy -= jam;
+    return `${this.nama} main`;
+  }
+  main = function(jam) {
+    this.energy += jam*2;
+    return `${this.nama} tidur`;
+  }
 }
-let udin = Mahasiswa('udin', 10);
-let tono = Mahasiswa('tono', 10);
+
+let udin = new Mahasiswa('udin', 10);
