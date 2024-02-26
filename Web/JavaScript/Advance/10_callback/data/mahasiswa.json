@@ -1,0 +1,23 @@
+[
+  {
+    "nama": "udin",
+    "nrp": "736432",
+    "email": "udin@gmail.com",
+    "jurusan": "Teknik Komputer",
+    "idDosenWali": 1
+  },
+  {
+    "nama": "budi",
+    "nrp": "7246328",
+    "email": "budi@gmail.com",
+    "jurusan": "Teknik Elektro",
+    "idDosenWali": 3
+  },
+  {
+    "nama": "tono",
+    "nrp": "982321",
+    "email": "tono@gmail.com",
+    "jurusan": "Teknik Mesin",
+    "idDosenWali": 2
+  }
+]
