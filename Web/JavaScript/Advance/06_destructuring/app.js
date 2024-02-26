@@ -1,7 +1,7 @@
 // destructuring variable / assignment
 
 // destructuring array
-const perkenalan = ['halo', 'nama', 'saya', 'udin'];
+// const perkenalan = ['halo', 'nama', 'saya', 'udin'];
 // const [salam, satu, dua, nama] = perkenalan;
 
 // skipping items
