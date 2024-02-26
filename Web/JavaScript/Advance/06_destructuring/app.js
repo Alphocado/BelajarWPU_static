@@ -90,13 +90,27 @@
 
 // Mengambil field pada object, setelah
 // dikirim sebagai parameter untuk function
-const mhs = {
-  id: 123,
-  nama: 'Udin',
-  umur: 33,
-  email: 'udin@gmail.com'
+// const mhs = {
+//   id: 123,
+//   nama: 'Udin',
+//   umur: 33,
+//   email: 'udin@gmail.com'
+// }
+// function getIdMhs({ id }){
+//   return id;
+// }
+// console.log(getIdMhs(mhs));
+
+// Destructuring
+function calc(a,b) {
+  return [a+b, a-b, a/b, a*b];
 }
-function getIdMhs({ id }){
-  return id;
-}
-console.log(getIdMhs(mhs));
+// const jumlah = penjumlahanPerkalian(2,3)[0];
+// const kali = penjumlahanPerkalian(2,3)[1];
+
+// const [jumlah, kali] = penjumlahanPerkalian(2,3);
+// console.log(jumlah);
+// console.log(kali);
+
+const [tambah, kurang, bagi, kali] = calc(2,3);
+console.log(bagi);
