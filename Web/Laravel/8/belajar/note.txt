@@ -1,0 +1,49 @@
+env variable sebenarnya
+env.example mungkin untuk catatan bentuk env sebelum kita otak atik
+
+.env
+app_env
+lingkungan pengembangan sekarang dalam proses apa
+
+sebelum pakai laravel pastikan
+> php artisan migrate
+terlebih dahulu dan connect database
+
+di migrate file ada up dan down
+up = mau bikin schema (struktur tablenya)
+down = menghilangkan schema yang dibikin
+jika 
+> php artisan migrate:rollback
+akan mendown table (delete)
+
+> php artisan migrate:fresh
+down (delete) lalu di up lagi (up)
+
+fungsi migrate untuk ketika buat secara tim
+
+
+eloquent (ORM)
+object relational mapper
+fungsi mematakan data dari database ke dalam object
+dapat dengan mudah interaksi dengan database
+setiap table akan terhubung dengan model yang bisa digunakan untuk 
+berinteraksi dengan table
+eloquent bisa crud
+
+active record pattern
+table didalam database dibungkus ke dalam class
+
+> php artisan tinker
+dengan tinker, bisa input database tanpa ke databasenya
+
+tinker
+> $user = new App\Models\User
+> $user->name = 'nama'
+> $user->email = 'email'
+> $user->password = bcrypt('00000')
+> $user->save() -- simpan
+> $user->all() -- tampilkan semua
+> $user->first() -- tampilkan yang pertama
+> $user->find(0) -- tampilkan yang dicari
+> $user->findOrFail(0) -- tampilkan yang dicari, jika tidak ketemu
+                          tampilkan error
