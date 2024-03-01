@@ -20,8 +20,10 @@ class Post extends Model
     return $this->belongsTo(Category::class);
   }
 
-  public function user()
+  // jika memaksa tidak sama nama function dengan object
+  public function author()
   {
-    return $this->belongsTo(User::class);
+    // tambahkan 
+    return $this->belongsTo(User::class, 'user_id');
   }
 }

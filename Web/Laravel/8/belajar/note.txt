@@ -153,3 +153,13 @@ faker lalu ubah jadi
 > 'faker_locale' => env('FAKER_LOCALE', 'en_US'),
 lalu ke .env, tambahkan
 > FAKER_LOCALE=id_ID
+
+
+cara membuat factory
+> php artisan make:factory <nama>
+jadi bisa buat data random yang bisa diatur isinya
+
+dengan factory tidak perlu cape cape isi data di tinker
+
+cara cepat jika mau buat model, migrate, factory, dan seed
+> php artisan make:model Student -mfs

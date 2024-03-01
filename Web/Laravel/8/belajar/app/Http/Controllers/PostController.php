@@ -13,7 +13,9 @@ class PostController extends Controller
     return view('posts', [
       // untuk head title
       "title" => "Posts",
-      "posts" => Post::all()
+      // "posts" => Post::all()
+      // menampilkan postingan terbaru terdahulu
+      "posts" => Post::latest()->get()
     ]);
   }
   // karena berbentuk Post $post
