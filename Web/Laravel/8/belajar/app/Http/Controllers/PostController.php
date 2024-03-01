@@ -11,6 +11,7 @@ class PostController extends Controller
   public function index()
   {
     return view('posts', [
+      // untuk head title
       "title" => "Posts",
       "posts" => Post::all()
     ]);

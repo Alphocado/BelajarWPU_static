@@ -100,5 +100,42 @@ bisa sekaligus memasukkan semua data, contoh
   'body' => '...'
 ])
 
+post::create([
+  'name' => 'Personal',
+  'slug' => 'personal'
+])
+
 tapi tidak bisa langsung, harus tambahkan variable protected $fillable di model
 
+seeder/seeding (biji)
+membuat data dummy di database
+
+membuat seeder
+> php artisan make:seeder <nama-seeder>
+
+execute seeder
+> php artisan db:seed
+
+bisa temukan seeder di App/database/seeders/DatabaseSeeder.php
+disitu kita bisa sediakan input untuk database 
+
+semisal ada databaru ditambahkan di seeder file tetapi saat mau execute tidak bisa
+commandnya
+> php artisan migrate:fresh --seed
+
+
+jika semisal ada table bernama post user dan category
+table post punya foreign key dengan 2 table lainnya
+semisal konek post dengan user
+
+post harus punya 1 user 
+user bisa punya banyak post
+jadi one to many
+
+cara agar bisa menampilkan adalah
+- ke file modelsnya postnya
+- buat function baru dengan nama user
+- didalam table user return belongsto User::class, jadi hanya bisa punya 1 user
+- ke file model User
+- tambahkan function baru dengan nama post
+- tambahkan return hasMany Post::class, jadi bisa banyak
