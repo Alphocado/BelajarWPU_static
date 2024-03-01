@@ -47,3 +47,58 @@ tinker
 > $user->find(0) -- tampilkan yang dicari
 > $user->findOrFail(0) -- tampilkan yang dicari, jika tidak ketemu
                           tampilkan error
+
+cara membuat migrate
+> php artisan make:migrate nama-file
+cara up ke database
+> php artisan migrate
+cara kembali sebelum migrate
+> php artisan migrate:rollback
+drop semua tabel lalu execute ulang
+> php artisan migrate:fresh
+
+
+cara membuat model
+> php artisan make:model nama-model
+kalau mau buat model + migrate bersamaan
+> php artisan make:model -m <nama>
+
+cara pakai tinker
+1.  atur database di env
+2.  buat database dan table di dalamnya 
+3.  buat model di laravel dengan nama yang sama dengan nama model
+    yang mau diinput
+4.  buka terminal dan masuk tinker 
+    > php artisan tinker
+5.  connect
+    > $nama-model-table = new nama-model-table
+6.  input, contoh
+    > $road = new App\Models\Road();
+    > $road->column1 = 'Value1';
+    > $road->column2 = 'Value2';
+7.  save dan input ke database
+    > $road->save() 
+
+tinker
+menampilkan semuanya
+> $road::all()
+menampilkan 1 berdasarkan id
+> $road::find(<id>)
+
+kenapa, bisa input dan muncul secara normal di halaman?
+karena datanya disimpan dalam bentuk "object" di Post.php (walaupun tidak terlihat)
+dan di PostController ada command yang sesuai dengan tinker,
+jadi tinggal panggil tinker di PostController
+
+
+kalau semisal tidak mau input melalui terminal tetapi melalui code
+> Post::create()
+bisa sekaligus memasukkan semua data, contoh
+> Post::create([
+  'title' => 'Judul ke empat',
+  'excerpt' => '...',
+  'body' => '...'
+])
+
+tapi tidak bisa langsung, harus tambahkan variable protected $fillable di model
+

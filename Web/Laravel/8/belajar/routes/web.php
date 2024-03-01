@@ -42,4 +42,9 @@ Route::get('/about', function () {
 Route::get('/posts', [PostController::class, 'index']);
 
 // halaman single post
-Route::get('posts/{slug}', [PostController::class, 'show']);
+// jika di isi post saja maka secara default akan mengirim id
+// Route::get('posts/{post}', [PostController::class, 'show']);
+
+// jika diisi begini maka akan mengirim slug 
+Route::get('posts/{post:slug}', [PostController::class, 'show']);
+// dengan begini tidak perlu id lagi
