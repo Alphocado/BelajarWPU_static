@@ -54,7 +54,7 @@ cara up ke database
 > php artisan migrate
 cara kembali sebelum migrate
 > php artisan migrate:rollback
-drop semua tabel lalu execute ulang
+hapus semua tabel lalu migrate kirim ulang
 > php artisan migrate:fresh
 
 
