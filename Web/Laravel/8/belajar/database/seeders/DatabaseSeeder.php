@@ -17,20 +17,20 @@ class DatabaseSeeder extends Seeder
   public function run()
   {
     // akan generate 10 data dummy ke dalam database
-    // \App\Models\User::factory(10)->create();
+    User::factory(5)->create();
 
     // masih ingat tinker?
     // yang dilakukan di tinker lakukan kembali di sini
-    User::create([
-      'name' => 'Udin Samsudin',
-      'email' => 'udin@gmail.com',
-      'password' => bcrypt('12345')
-    ]);
-    User::create([
-      'name' => 'Budi Susanto',
-      'email' => 'budi@gmail.com',
-      'password' => bcrypt('12345')
-    ]);
+    // User::create([
+    //   'name' => 'Udin Samsudin',
+    //   'email' => 'udin@gmail.com',
+    //   'password' => bcrypt('12345')
+    // ]);
+    // User::create([
+    //   'name' => 'Budi Susanto',
+    //   'email' => 'budi@gmail.com',
+    //   'password' => bcrypt('12345')
+    // ]);
 
     Category::create([
       'name' => 'Web Programming',

@@ -139,3 +139,17 @@ cara agar bisa menampilkan adalah
 - ke file model User
 - tambahkan function baru dengan nama post
 - tambahkan return hasMany Post::class, jadi bisa banyak
+
+
+factory, pabrik pembuat data palsu 
+pasti saat membuat database diperlukan isi data untuk testing
+daripada isi secara manual
+laravel bisa memasukkan data
+
+faker library itu akan mengenerate data yang kita butuhkan
+bisa juga kostum bahasa
+ke App/Config/app.php
+faker lalu ubah jadi
+> 'faker_locale' => env('FAKER_LOCALE', 'en_US'),
+lalu ke .env, tambahkan
+> FAKER_LOCALE=id_ID
