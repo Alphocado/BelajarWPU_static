@@ -13,6 +13,7 @@ class PostController extends Controller
     return view('posts', [
       // untuk head title
       "title" => "All Posts",
+      "active" => 'posts',
       // "posts" => Post::all()
       // menampilkan postingan terbaru terdahulu
 
@@ -32,6 +33,7 @@ class PostController extends Controller
   {
     return view('post', [
       "title" => "Single Post",
+      "active" => 'posts',
       "post" => $post
     ]);
   }
