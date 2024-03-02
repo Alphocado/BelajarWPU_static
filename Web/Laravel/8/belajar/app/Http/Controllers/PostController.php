@@ -12,10 +12,10 @@ class PostController extends Controller
   {
     return view('posts', [
       // untuk head title
-      "title" => "Posts",
+      "title" => "All Posts",
       // "posts" => Post::all()
       // menampilkan postingan terbaru terdahulu
-      "posts" => Post::latest()->get()
+      "posts" => Post::with(['author', 'category'])->latest()->get()
     ]);
   }
   // karena berbentuk Post $post

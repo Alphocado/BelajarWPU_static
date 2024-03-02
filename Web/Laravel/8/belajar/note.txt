@@ -163,3 +163,31 @@ dengan factory tidak perlu cape cape isi data di tinker
 
 cara cepat jika mau buat model, migrate, factory, dan seed
 > php artisan make:model Student -mfs
+
+
+N+1 problem
+terjadi ketika aplikasi mengambil data dari database
+didalamnya melakukan looping terhadap data, artinya
+memanggil database berulang ulang akan ada masalah
+di looping bagian view, jika terjadi terus yang
+ada melambatkan performa
+
+pakai eager loading untuk mengatasi N+1 problem
+eager loading bagus jika ada data yang 
+foreign key ke table lain
+
+sebelum
+> Book::all();
+sesudah 
+> $books = Book::with('author')->get();
+kalau query yang mau diambil lebih dari 1?
+> $books = Book::with(['author','publisher'])->get()
+
+contoh code di folder ini
+sebelum
+> "posts" => Post::latest()->get()
+sesudah
+> "posts" => Post::with(['author', 'category'])->latest()->get()
+
+jika dalam routes model binding? 
+pakai lazy eager loading
