@@ -12,6 +12,8 @@ class Post extends Model
   // protected $fillable = ['title', 'excerpt', 'body'];
   // property yang tidak boleh diisi
   protected $guarded = ['id'];
+  // mempersingkat
+  protected $with = ['category', 'author'];
 
   public function category()
   {

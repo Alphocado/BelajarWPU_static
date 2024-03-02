@@ -15,7 +15,11 @@ class PostController extends Controller
       "title" => "All Posts",
       // "posts" => Post::all()
       // menampilkan postingan terbaru terdahulu
-      "posts" => Post::with(['author', 'category'])->latest()->get()
+
+      // bisa pindahkan withnya ke modelnya
+      // "posts" => Post::with(['author', 'category'])->latest()->get()
+      // dan jadi singkat seperti ini
+      "posts" => Post::latest()->get()
     ]);
   }
   // karena berbentuk Post $post
