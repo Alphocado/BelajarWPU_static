@@ -7,10 +7,10 @@
       <h1 class="mb-3">{{ $post->title }}</h1>
     
       <p>By. 
-        <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">
+        <a href="/blogs?author={{ $posts[0]->author->username }}" class="text-decoration-none">
           {{ $post->author->name }}
         </a> in 
-        <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">
+        <a href="/blogs?category={{ $post->category->slug }}" class="text-decoration-none">
           {{ $post->category->name }}
         </a>
       </p>
@@ -25,7 +25,7 @@
         {!! $post->body !!}
       </article>
       
-      <a href="/posts" class="d-block mt-3">Back to blog</a>
+      <a href="/blogs" class="d-block mt-3">Back to blog</a>
 
     </div>
   </div>

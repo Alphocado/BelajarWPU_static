@@ -43,14 +43,14 @@ Route::get('/about', function () {
 });
 
 
-Route::get('/posts', [PostController::class, 'index']);
+Route::get('/blogs', [PostController::class, 'index']);
 
 // halaman single post
 // jika di isi post saja maka secara default akan mengirim id
 // Route::get('posts/{post}', [PostController::class, 'show']);
 
 // jika diisi begini maka akan mengirim slug 
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/blogs/{post:slug}', [PostController::class, 'show']);
 // dengan begini tidak perlu id lagi
 
 Route::get('/categories', function () {
@@ -62,18 +62,18 @@ Route::get('/categories', function () {
 });
 
 // menampilkan semua postingan berdasarkan categories
-Route::get('/categories/{category:slug}', function (Category $category) {
-  return view('posts', [
-    'title' => "Post By Category : " . $category->name,
-    'active' => 'categories',
-    'posts' => $category->posts->load('category', 'author'),
-  ]);
-});
+// Route::get('/categories/{category:slug}', function (Category $category) {
+//   return view('posts', [
+//     'title' => "Post By Category : " . $category->name,
+//     'active' => 'categories',
+//     'posts' => $category->posts->load('category', 'author'),
+//   ]);
+// });
 
-Route::get('/authors/{author:username}', function (User $author) {
-  return view('posts', [
-    'title' => "Post By Author : " . $author->name,
-    'active' => 'author',
-    'posts' => $author->posts->load('category', 'author'),
-  ]);
-});
+// Route::get('/authors/{author:username}', function (User $author) {
+//   return view('posts', [
+//     'title' => "Post By Author : " . $author->name,
+//     'active' => 'author',
+//     'posts' => $author->posts->load('category', 'author'),
+//   ]);
+// });

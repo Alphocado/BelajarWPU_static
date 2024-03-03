@@ -191,3 +191,14 @@ sesudah
 
 jika dalam routes model binding? 
 pakai lazy eager loading
+
+
+
+NOTE:
+post dan posts beda
+posts kumpulan post yang ada
+post tampilkan khusus satu post
+
+
+ada yg namanya method request()
+kegunaanya untuk menangkap method get
