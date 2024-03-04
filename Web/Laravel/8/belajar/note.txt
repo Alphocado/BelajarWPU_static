@@ -285,3 +285,47 @@ langsung view
 
 pakai controller
 Route::get('/blogs', [PostController::class, 'index']);
+kalau controller begini penjelasannya
+- kalau url adalah /blos, maka lakukan ini
+- ambil file controlller (postcontroller)
+- disitu ambil method index 
+- di method index biasanya berakhir dengan
+> return view
+untuk menampilkan UI
+
+
+middleware
+untuk membedakan yang mana sudah login atau belum
+> Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+
+artinya, yang belum login masuk ke sini
+auth dan middleware sangat berkaitan satu sama lain
+
+disuatu page biasa, kan biasanya ada tuh yang kanan atas gambar login
+ada yang masih belum ada yang sudah, cara ceknya sepert ini 
+> @auth
+    TODO
+  @else
+    TODO
+  @endauth
+
+auth akan mengecek apakah sudah login atau belum
+
+
+untuk logout bisa dengan ini
+> Route::post('/logout', [LoginController::class, 'logout']);
+karna post bisa jadi cara aksesnya dengan form
+
+di controllernya seperti ini
+> public function logout()
+  {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/');
+  }
+
+ini akan menghapus semua sesi logout dan buat ulang
+
+agar hanya user yang sudah login bisa masuk
+> Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
