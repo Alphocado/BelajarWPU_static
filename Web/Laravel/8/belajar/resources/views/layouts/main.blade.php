@@ -9,6 +9,12 @@
   <!-- Bootstrap CSS -->
   <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  {{-- bootstrap icons --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  {{-- vanila css --}}
+  <link rel="stylesheet" href="/css/style.css">
+
   <title>Alph | {{ $title }}</title>
 </head>
 

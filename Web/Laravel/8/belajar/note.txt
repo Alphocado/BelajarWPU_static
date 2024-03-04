@@ -193,7 +193,6 @@ jika dalam routes model binding?
 pakai lazy eager loading
 
 
-
 NOTE:
 post dan posts beda
 posts kumpulan post yang ada
@@ -202,3 +201,87 @@ post tampilkan khusus satu post
 
 ada yg namanya method request()
 kegunaanya untuk menangkap method get
+
+
+@csrf
+proteksi input form
+
+semisal di view ada form dan formnya diberi method post
+bisa ada perubahan menampilkan view di web.php
+> Route::get('/register', [RegisterController::class, 'index']);
+> Route::post('/register', [RegisterController::class, 'store']);
+yang atas dan yang bawah beda
+yang atas bisa diakses dengan get atau link
+sedangkan yang bawa hanya bisa diakses dengan form saja
+tidak bisa dari link
+
+bisa validasi form
+> public function store(Request $request)
+  {
+    $request->validate([
+      'name' => 'required|max:255',
+      'username' => ['required', 'min:3', 'max:255', 'unique:users'],
+      'email' => 'required|email|unique:users',
+      'password' => 'required|min:5|max:255'
+    ]);
+  }
+
+semisal ada error saat input (setelah validasi)
+> <div class="form-floating">
+    <input type="text" class="form-control rounded-top @error('name') is-invalid @enderror" id="name" placeholder="name@example.com" name="name">
+    <label for="name">Name</label>
+    
+    @error('name')
+    <div class="invalid-feedback">
+      {{ $message }}
+    </div>
+    @enderror
+  </div>
+bisa seperti ini untuk atur errornya
+
+agar saat terjadi error valuenya tetap, bisa
+di dalam inputnya tambahkan
+> value="{{ old('email') }}"
+contoh panjang
+> <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="email" name="email" value="{{ old('email') }}">
+
+pastikan sebelum input di modelnya bagian fillable diisikan
+sesuai dengan inputnya
+> protected $fillable = [
+    'name',
+    'username',
+    'email',
+    'password',
+  ];
+arti code diatas adalah bagian yang bisa diisi ke database
+jika sebaliknya? bagian yang tidak boleh diisi ke database
+> protected $guarded = ['id'];
+
+untuk enkripsi password bisa dengan cara 1:
+> $validatedData['password'] = bcrypt($validatedData['password']);
+cara 2:
+import dulu
+> use Illuminate\Support\Facades\Hash;
+lalu pakai
+> $validatedData['password'] = Hash::make($validatedData['password']);
+
+kalau mau kasih notif jika register berhasil
+> $request->session()->flash('success', 'Registration successfull');
+
+
+
+dua cara membuat view ada 2 tipe
+
+langsung view
+> Route::get('/about', function () {
+  return view('about', [
+    "title" => "About",
+    'active' => 'about',
+    "name" => "alphocado",
+    "email" => "raylienardy@gmail.com",
+    "image" => "profile.jpg"
+  ]);
+});
+
+pakai controller
+Route::get('/blogs', [PostController::class, 'index']);
