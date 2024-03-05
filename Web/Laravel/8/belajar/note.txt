@@ -482,3 +482,13 @@ ada old gk? kalau gk ada post->title g?
       'body' => 'required'
     ]);
 ini untuk memvalidasi data
+
+
+  <form method="post" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
+
+fungsi entype untuk membantu jika semisal mau input gambar/file
+
+
+
+ddd()
+dump die debug 
