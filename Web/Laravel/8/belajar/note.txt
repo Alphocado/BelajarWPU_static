@@ -329,3 +329,100 @@ ini akan menghapus semua sesi logout dan buat ulang
 
 agar hanya user yang sudah login bisa masuk
 > Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+
+
+di laravel ada pula yang namanya
+@include
+@extends
+@yield
+@section
+
+
+@include 
+akan ambil code dari halaman lain
+lalu akan pasang disitu, seperti copy paste
+semisal ada 2 file, a.blade.php dan b.blade.php
+
+a.blade.php
+@include('dashboard/layouts/b')
+
+b.blade.php
+<berisi banyak code>
+
+semua dari file b akan diambil dan dipasang di file a
+
+@extends, @section, dan @yield saling koneksi
+semisal di file a barusan
+a.blade.php
+<code>
+@yield('container');
+<code>
+
+lalu di file c
+c.blade.php
+@extends('dashboard/layouts/a)
+@section('container')
+<code>
+@endsection
+
+jadi di file c akan mengambil semua dari a
+tapi sedikit beda, bisa menambahkan 
+code baru di file c berkat section
+istilahnya meringkas
+
+
+setelah login bisa memakai auth untuk akses data user yang login 
+
+
+cara cepat untuk membuat controller yang lengkap crud template
+> php artisan make:controller <nama> --resource
+
+kalau semisal langsung mau langsung terhubung ke model yang mana
+> php artisan make:controller <nama> --resource --model=<namamodel>
+
+contoh
+> php artisan make:controller DashboardPostController --resource --model="Post"
+buat controller DashboardPostController lalu koneksi ke model Post
+
+
+
+agar bisa masuk hanya dengan login
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+ini akan membantu ketika crud
+
+
+cara gambang atur yang mana active di navbar
+<a class="nav-link {{ Request::is('dashboard/posts') ? 'active' : '' }}" href="/dashboard/posts">
+
+tidak perlu variable active
+
+
+Post::where('user_id', auth()->user()->id->get());
+fungsi get untuk mengambil
+
+
+di controller ada seperti ini
+> return view('dashboard/posts/index', [
+  'posts' => Post::where('user_id', auth()->user()->id)->get()
+]);
+
+ini artinya mengambil data id user yang sedang login,
+lalu cari di database table post yang dimana user id nya adalah id user yang login
+lalu simpan dalam variable $posts dalam bentuk array
+lalu kirim datanya ke view posts index
+
+
+
+<td>{{ $loop->iteration }}</td>
+jika ada ini artinya untuk hitung ada berapa banyak loop yang terulang
+
+
+  public function getRouteKeyName()
+  {
+    return 'slug';
+  }
+
+memastikan hanya bagian "slug" bisa diterima
+dan mirip dengan
+> Route::get('/posts/{post}', 'PostController@show');
