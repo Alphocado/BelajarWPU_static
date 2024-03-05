@@ -21,7 +21,6 @@
         {!! $post->body !!}
       </article>
       
-      <a href="/blogs" class="d-block mt-3">Back to blog</a>
 
     </div>
   </div>

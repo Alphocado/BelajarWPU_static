@@ -426,3 +426,36 @@ jika ada ini artinya untuk hitung ada berapa banyak loop yang terulang
 memastikan hanya bagian "slug" bisa diterima
 dan mirip dengan
 > Route::get('/posts/{post}', 'PostController@show');
+
+
+
+> $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+kalau ada ini artinya 
+$request->body akan dipangkas agar menjadi body post versi singkat
+
+> return redirect('/dashboard/posts')->with('success', 'New post has been added');
+kembali ke halaman dashboard posts, lalu ada session dengan variable success dikirim
+contoh dipage lain
+> @if(session()->has('success'))
+<div class="alert alert-primary" role="alert">
+  {{ session('success') }}
+</div>
+@endif
+
+mengecek apakah ada session success, kalau ada tampilkan
+
+
+    $validatedData = $request->validate([
+      'title' => 'required|max:255',
+      'slug' => 'required|unique:posts',
+      'category_id' => 'required',
+      'body' => 'required'
+    ]);
+
+    $validatedData['user_id'] = auth()->user()->id;
+    $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+    Post::create($validatedData);
+
+mengambil data dari form
+lalu masukkan ke tabler user (object Post)
