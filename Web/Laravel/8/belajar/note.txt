@@ -459,3 +459,26 @@ mengecek apakah ada session success, kalau ada tampilkan
 
 mengambil data dari form
 lalu masukkan ke tabler user (object Post)
+
+
+
+di crud file controller
+edit : menampilkan view
+update : prosesnya
+
+create : menampilkan viewnya
+store : proses datanya
+
+
+value="{{ old('title', $post->title) }}"
+ada old gk? kalau gk ada post->title g?
+
+
+
+    $validatedData = $request->validate([
+      'title' => 'required|max:255',
+      'slug' => 'required|unique:posts',
+      'category_id' => 'required',
+      'body' => 'required'
+    ]);
+ini untuk memvalidasi data
