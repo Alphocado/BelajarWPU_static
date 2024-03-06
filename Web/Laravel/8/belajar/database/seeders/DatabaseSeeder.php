@@ -19,11 +19,12 @@ class DatabaseSeeder extends Seeder
 
     // masih ingat tinker?
     // yang dilakukan di tinker lakukan kembali di sini
-    // User::create([
-    //   'name' => 'Udin Samsudin',
-    //   'email' => 'udin@gmail.com',
-    //   'password' => bcrypt('12345')
-    // ]);
+    User::create([
+      'name' => 'Udin Samsudin',
+      'username' => 'udin',
+      'email' => 'udin@gmail.com',
+      'password' => bcrypt('12345')
+    ]);
     // User::create([
     //   'name' => 'Budi Susanto',
     //   'email' => 'budi@gmail.com',

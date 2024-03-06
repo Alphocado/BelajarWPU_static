@@ -17,7 +17,14 @@
         <button class="btn btn-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x-circle"></span> Delete</button>
       </form>
 
-      <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+
+      @if ($post->image)
+        <div style="max-height: 350px; overflow: hidden;">
+          <img src="{{ asset('storage/'.$post->image) }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+        </div>
+      @else
+        <img src="https://source.unsplash.com/1200x400?{{ $post->category->name }}" alt="{{ $post->category->name }}" class="img-fluid mt-3">
+      @endif
 
       {{-- kalau pake ini akan melakukan escape, artinya tag didalamnya akan muncul ke page --}}
       {{-- {{ $post->body }} --}}
