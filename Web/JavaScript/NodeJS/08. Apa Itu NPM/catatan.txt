@@ -1,0 +1,67 @@
+Press ^C at any time to quit.
+package name: (08.-apa-itu-npm)
+version: (1.0.0)
+description: belajar npm
+entry point: (index.js) app.js
+test command:
+git repository:
+keywords:
+author: Alphocado
+license: (ISC)
+About to write to D:\Dropbox\Belajar\Web\JavaScript\NodeJS\08. Apa Itu NPM\package.json:
+
+{
+  "name": "08.-apa-itu-npm",
+  "version": "1.0.0",
+  "description": "belajar npm",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alphocado",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes)
+
+
+akan dibuat package.json
+
+di package.json bagian script, bisa dirun di terminal
+"scripts": {
+  "start": "node app",
+  "dev" : "ls",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+
+> npm start (bisa)
+> npm test (bisa)
+
+tapi kalau semisal ada yang diluar seperti dev ada cara khusus
+> npm run dev
+
+
+
+untuk install package bisa search di web resmi npm
+cara installnya biasanya
+> npm i <nama-package>
+
+lalu setelah itu akan ditambahkan sesuatu sesuai nama package
+di package.json
+"dependencies": {
+    "validator": "^13.11.0"
+  }
+
+bagian sini akan masuk semua package yang baru didownload
+
+dan juga akan ditambahkan folder baru, node_modules
+setiap install sesuatu akan disimpan di folder tersebut
+
+cara uninstall package
+> npm uninstall <nama-package>
+
+cara install langsung berdasarkan versinya
+> npm i <nama-package>@<versi> 
+contoh
+> npm i validator@13.5.2

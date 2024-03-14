@@ -1,0 +1,16 @@
+{
+  "name": "08.-apa-itu-npm",
+  "version": "1.0.0",
+  "description": "belajar npm",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "ls",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alphocado",
+  "license": "ISC",
+  "dependencies": {
+    "validator": "^13.11.0"
+  }
+}
